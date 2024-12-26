@@ -27,11 +27,16 @@ class RecipesController < ApplicationController
 	  def search_recipe 
 	      @recipe = Recipe.where("name LIKE ?","#{params[:name]}%")
 		  @ingredient = Ingredient.where("ingredient LIKE ?","#{params[:ingredient]}%")
-	      redirect_to listing_result_recipes_path(@recipe.name)
+		  @recipe.each do |recipe|
+		  redirect_to listing_result_recipes_path(recipe)
+		  end
+
 	  end
 
 	  def listing_result
-	  	render json: @recipe
+	  	@recipe = Recipe.find(params["format"].to_i)
+	      render 'listing_result'
+
 	  end
 	 
 	  private

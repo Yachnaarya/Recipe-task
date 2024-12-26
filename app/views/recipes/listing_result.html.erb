@@ -1,1 +1,9 @@
 <h1>Results</h1>
+<%# <% @recipe.each do |recipe| %> %>
+    <tr>
+      <td><%= @recipe.name %></td>
+      <td><%= @recipe.instructions %></td>
+      <td><%= @recipe.ingredients.first&.name  %></td>
+
+    </tr>
+  <%# <% end %> %>

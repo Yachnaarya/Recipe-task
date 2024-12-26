@@ -27,9 +27,14 @@ class RecipesController < ApplicationController
 	  def search_recipe 
 	      @recipe = Recipe.where("name LIKE ?","#{params[:name]}%")
 		  @ingredient = Ingredient.where("ingredient LIKE ?","#{params[:ingredient]}%")
-		  @recipe.each do |recipe|
-		  redirect_to listing_result_recipes_path(recipe)
-		  end
+		   if params[:name].eql?("") && params[:ingredient].eql?("")
+		   	render 'no_data'
+
+		   else
+		  	@recipe.each do |recipe|
+		  		redirect_to listing_result_recipes_path(recipe)
+		  	end
+			end
 
 	  end
 

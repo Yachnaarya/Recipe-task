@@ -1,0 +1,21 @@
+<p>
+  <strong>Title:</strong>
+  <%= @recipe.name %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @recipe.instructions %>
+</p>
+ 
+ <p>
+   <strong>Text:</strong>
+   <%= @recipe.cooking_time %>
+ </p>
+  
+<%# <h2>Ingredients</h2>
+<%= render @recipe.ingredients %> %>
+ 
+<h2>Add a Ingredients:</h2>
+<%= render 'ingredients/form' %>
+ 
